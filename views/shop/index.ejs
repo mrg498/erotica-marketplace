@@ -1,7 +1,30 @@
-<%- include('../includes/head') %>
-    <link rel="stylesheet" href="css/shop/index.css">
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="css/shop/index.css">
 </head>
+
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Logo</h1>
+            </div>
+            <div class="hamburger">
+                <div class="hamburger__line"></div>
+                <div class="hamburger__line"></div>
+                <div class="hamburger__line"></div>
+            </div>
+        </nav>
+        <div class="nav-links">
+            <ul>
+                <li class="nav-links__item">
+                    <a class="nav-links__link" href="#">Sample Page 1</a>
+                </li>
+                <li class="nav-links__item">
+                    <a class="nav-links__link" href="#">Sample Page 2</a>
+                </li>
+            </ul>
+        </div>
+    </header>
     <h1>Index.ejs</h1>
-</body>
-</html>
+
+<%- include('../includes/foot.ejs') %>
