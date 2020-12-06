@@ -1,0 +1,27 @@
+{
+  "name": "erotica-marketplace",
+  "version": "1.0.0",
+  "description": "an erotica marketplace",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrg498/erotica-marketplace.git"
+  },
+  "author": "Miles Grossenbacher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrg498/erotica-marketplace/issues"
+  },
+  "homepage": "https://github.com/mrg498/erotica-marketplace#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.4"
+  }
+}
