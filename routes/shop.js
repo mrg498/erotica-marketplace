@@ -8,4 +8,16 @@ router.get("/", (req, res, next) => {
     });
 });
 
+router.get("/stories", (req,res,next) => {
+    res.render('shop/stories', {
+        pageTitle: 'Stories'
+    });
+});
+
+router.get("/about", (req,res,next)=> {
+    res.render('shop/about', {
+        pageTitle: 'About'
+    })
+});
+
 module.exports = router;
