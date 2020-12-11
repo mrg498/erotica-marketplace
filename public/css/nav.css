@@ -71,7 +71,7 @@
 
 .nav-links--open {
 	animation-name: slideMenuLeft;
-    animation-duration: 1s;
+    animation-duration: 0.7s;
     margin-left: -50%;
 }
 

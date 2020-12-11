@@ -1,23 +1,13 @@
 const express = require("express");
 
+const shopController = require('../controllers/shop');
+
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
-	res.render("shop/index", {
-        pageTitle: 'Erotica Marketplace'
-    });
-});
+router.get("/", shopController.getIndex);
 
-router.get("/stories", (req,res,next) => {
-    res.render('shop/stories', {
-        pageTitle: 'Stories'
-    });
-});
+router.get("/stories", shopController.getStories);
 
-router.get("/about", (req,res,next)=> {
-    res.render('shop/about', {
-        pageTitle: 'About'
-    })
-});
+router.get("/about", shopController.getAbout);
 
 module.exports = router;
