@@ -18,15 +18,22 @@ body {
 	background: rgb(18, 39, 56);
 	background: radial-gradient(circle, rgba(18, 39, 56, 1) 50%, rgba(216, 14, 61, 1) 100%);
 	font-family: var(--font-text);
+	display: flex;
+	flex-direction: column;
 }
 
 main {
-	margin: 1rem 1rem;
+	padding: 1rem 1rem;
+}
+
+.main__header{
+	text-align: center;
+	margin: 1rem 0;
 }
 
 h1{
 	font-family: var(--font-header);
-    color: var(--accent-color-light);
+	color: var(--accent-color-light);
 }
 
 a{

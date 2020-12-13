@@ -1,3 +1,4 @@
+//maybe not having a user
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;

@@ -3,61 +3,113 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-    background-color: var(--primary-color);
-    border-bottom: 5px solid var(--accent-color);
+	padding: 1rem;
+	background-color: var(--primary-color);
+	border-bottom: 5px solid var(--accent-color);
 }
 
 .logo {
-    margin-left: 1rem;
+	display: inline;
 }
 .logo a {
-	color: var(--secondary-color)
+	color: var(--secondary-color);
 }
 
 .hamburger {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-	margin: 1rem;
-	height: 3rem;
-	width: 3rem;
-	background-color: var(--accent-color);
-	border: 2px solid var(--accent-color-light);
-	border-radius: 8px;
+	position: relative;
+	height: 44px;
+	width: 44px;
+	background-color: transparent;
 	cursor: pointer;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
-
-.hamburger:hover,
-.hamburger:focus {
-	background-color: var(--accent-color-dark);
+.hamburger:before {
+	content: "";
+	position: absolute;
+	height: 44px;
+	width: 44px;
+	border: 5px solid transparent;
+	top: calc(50% - 27px);
+	left: calc(50% - 26px);
+	border-radius: 100%;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.hamburger.is-active:before {
+	border: 5px solid #ecf0f1;
+}
+.hamburger.is-active .hamburger__line {
+	width: 30px;
 }
 
 .hamburger__line {
-	width: 75%;
-	border-bottom: 2px solid var(--accent-color-light);
-	border-radius: 5px;
+	width: 44px;
+	height: 4px;
+	background-color: #ecf0f1;
+	display: block;
+	margin: 8px auto;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
-.hamburger__line:first-of-type {
-	margin-top: 0.5rem;
+.is-active {
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
 }
-.hamburger__line:last-of-type {
-	margin-bottom: 0.5rem;
+
+.hamburger.is-active .hamburger__line:nth-child(2) {
+	opacity: 0;
+}
+
+.hamburger.is-active .hamburger__line:nth-child(1) {
+	-webkit-transform: translateY(11px);
+	-ms-transform: translateY(11px);
+	-o-transform: translateY(11px);
+	transform: translateY(11px);
+}
+
+.hamburger.is-active .hamburger__line:nth-child(3) {
+	-webkit-transform: translateY(-13px) rotate(90deg);
+	-ms-transform: translateY(-13px) rotate(90deg);
+	-o-transform: translateY(-13px) rotate(90deg);
+	transform: translateY(-13px) rotate(90deg);
 }
 
 .nav-links {
 	position: fixed;
 	display: flex;
-	justify-content: flex-end;
+	flex-direction: column;
+	justify-content: start;
+	align-items: flex-end;
 	height: 100vh;
 	width: 100vw;
-    background-color: var(--accent-color);
-    color: var(--accent-color-light);
-    border: 5px solid var(--accent-color-light);
-    border-top: none;
-    border-bottom: none;
+	background-color: var(--accent-color);
+	color: var(--accent-color-light);
+	border: 5px solid var(--accent-color-light);
+	border-top: none;
+	border-bottom: none;
 	margin-left: -100%;
+	padding-top: 1rem;
+}
+
+hr{
+	border: 3px solid var(--accent-color-light);
+	width: 100%;
+}
+
+.nav-links .creators {
+	font-size: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	margin-right: 1rem;
+	color: white;
+	text-decoration: underline;
 }
 
 @keyframes slideMenuLeft {
@@ -71,21 +123,27 @@
 
 .nav-links--open {
 	animation-name: slideMenuLeft;
-    animation-duration: 0.7s;
-    margin-left: -50%;
+	animation-duration: 0.7s;
+	margin-left: -50%;
 }
 
 .nav-links ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 	list-style: none;
-	margin-top: 1rem;
 }
 
 .nav-links li {
-    margin-top: 1rem;
-    margin-right: 1rem;
+	margin-top: 1rem;
+	margin-right: 1rem;
+}
+
+.nav-links li:first-of-type{
+	margin-top: 0;
+}
+.nav-links li:last-of-type{
+	margin-bottom: 1rem;
 }
 
 .nav-links a {
@@ -93,6 +151,7 @@
 	color: var(--accent-color-light);
 }
 
-.nav-links a:hover, .nav-links a:focus {
+.nav-links a:hover,
+.nav-links a:focus {
 	color: var(--primary-color);
 }
