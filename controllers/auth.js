@@ -27,3 +27,40 @@ exports.getCreatorSignup = (req,res,next) => {
         pageTitle: 'Creator Signup'
     });
 }
+
+exports.postCreatorSignup = (req,res,next)=> {
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    let userExists;
+    Creator.findOne({email: email})
+    .then(doc => {
+        if(doc){
+            return userExists = true;
+        }
+        return Creator.findOne({username: username});
+    })
+    .then(doc => {
+        if(doc){
+            return userExists = true;
+        }
+        const creator = new Creator({
+            username: username,
+            email: email,
+            password: password
+        });
+
+        creator.save();
+    })
+    .then(result => {
+        if(userExists){
+            console.log("User already exists");
+            return res.redirect("/auth/creator-signup");
+        }
+        console.log("created new user");
+        res.redirect("/auth/creator-login");
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}

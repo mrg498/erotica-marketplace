@@ -52,6 +52,7 @@ app.use("/admin", adminRoutes);
 app.use(errorController.get404);
 
 //connect to database and start server
+mongoose.set('useCreateIndex', true);
 mongoose
 	.connect(
 		DATABASE_URI,

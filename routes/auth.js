@@ -12,4 +12,6 @@ router.post('/creator-logout', authController.postCreatorLogout);
 
 router.get('/creator-signup', authController.getCreatorSignup);
 
+router.post('/creator-signup', authController.postCreatorSignup);
+
 module.exports = router;

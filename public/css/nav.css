@@ -5,7 +5,7 @@
 	align-items: center;
 	padding: 1rem;
 	background-color: var(--primary-color);
-	border-bottom: 5px solid var(--accent-color);
+	border-bottom: 5px solid var(--accent-color-light);
 }
 
 .logo {
@@ -39,7 +39,7 @@
 	transition: all 0.3s ease-in-out;
 }
 .hamburger.is-active:before {
-	border: 5px solid #ecf0f1;
+	border: 5px solid var(--accent-color-light);
 }
 .hamburger.is-active .hamburger__line {
 	width: 30px;
@@ -48,7 +48,7 @@
 .hamburger__line {
 	width: 44px;
 	height: 4px;
-	background-color: #ecf0f1;
+	background-color: var(--accent-color-light);
 	display: block;
 	margin: 8px auto;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -117,14 +117,14 @@ hr{
 		margin-left: -100%;
 	}
 	100% {
-		margin-left: -50%;
+		margin-left: -40%;
 	}
 }
 
 .nav-links--open {
 	animation-name: slideMenuLeft;
 	animation-duration: 0.7s;
-	margin-left: -50%;
+	margin-left: -40%;
 }
 
 .nav-links ul {

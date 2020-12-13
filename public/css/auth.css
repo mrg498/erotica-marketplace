@@ -16,7 +16,7 @@ form{
     background-color: transparent;
     color: var(--accent-color-light);
     margin: auto;
-    width: 80%;
+    width: 90%;
 }
 
 input, button {
