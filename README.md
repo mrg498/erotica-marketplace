@@ -1,2 +1,3 @@
 # erotica-marketplace
-Ecommerce website to sell erotica stories
+Website for creators to list and sell erotica stories.
+
