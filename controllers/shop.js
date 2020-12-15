@@ -2,7 +2,7 @@ const Story = require('../models/story');
 
 exports.getIndex = (req,res,next) => {
     res.render("shop/index", {
-        pageTitle: 'Erotica Marketplace'
+        pageTitle: 'Haven'
     });
 }
 exports.getStories = (req,res,next) => {
