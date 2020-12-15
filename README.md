@@ -14,5 +14,5 @@ Website for creators to list and sell erotica stories.
 **Story** - id, title, blurb, image, text_file, audio_file
 
 ## Site Map
-![alt text](https://github.com/mrg498/erotica-marketplace/blob/main/specs/haven_sitemap.png)
+![alt text](https://github.com/mrg498/erotica-marketplace/blob/main/specs/haven_site-map.png)
 
