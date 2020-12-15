@@ -10,6 +10,13 @@ exports.getStories = (req,res,next) => {
         pageTitle: 'Stories'
     });
 }
+
+exports.getAudioOnly = (req,res,next) => {
+    res.render('shop/audio-only', {
+        pageTitle: 'Audio Porn'
+    });
+}
+
 exports.getAbout = (req,res,next)=> {
     res.render('shop/about', {
         pageTitle: 'About'

@@ -8,6 +8,8 @@ router.get("/", shopController.getIndex);
 
 router.get("/stories", shopController.getStories);
 
+router.get("/audio-only", shopController.getAudioOnly);
+
 router.get("/about", shopController.getAbout);
 
 module.exports = router;

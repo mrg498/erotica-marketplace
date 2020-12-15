@@ -89,7 +89,7 @@
 	align-items: flex-end;
 	height: 100vh;
 	width: 100vw;
-	background-color: var(--accent-color);
+	background-color: var(--primary-color);
 	color: var(--accent-color-light);
 	border: 5px solid var(--accent-color-light);
 	border-top: none;
@@ -153,5 +153,5 @@ hr{
 
 .nav-links a:hover,
 .nav-links a:focus {
-	color: var(--primary-color);
+	color: var(--accent-color);
 }

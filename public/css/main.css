@@ -5,8 +5,8 @@
 }
 
 :root {
-	--primary-color: rgb(18, 39, 56);
-	--secondary-color: rgb(216, 14, 61);
+	--primary-color: rgb(33, 70, 101);
+	--secondary-color: rgb(244, 115, 145);
 	--accent-color: rgb(145, 140, 110);
 	--accent-color-dark: rgb(50, 48, 29);
 	--accent-color-light: rgb(235, 232, 206);
@@ -15,8 +15,7 @@
 }
 
 body {
-	background: rgb(18, 39, 56);
-	background: radial-gradient(circle, rgba(18, 39, 56, 1) 50%, rgba(216, 14, 61, 1) 100%);
+	background-color: rgb(18, 39, 56);
 	font-family: var(--font-text);
 	display: flex;
 	flex-direction: column;
