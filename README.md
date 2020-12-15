@@ -9,6 +9,8 @@ Website for creators to list and sell erotica stories and erotic audio.
 
 ## Models
 
+**Customer** - id, display name, password, email
+
 **Creator** - id, display name, email, password, bio, image
 
 **Story** - id, title, blurb, image, text_file, audio_file
