@@ -2,9 +2,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const storySchema = new Schema({
-	title: String,
-	author: String,
-	body: String,
+	title: {
+		type: String,
+		required: true
+	},
+	body: {
+		type: String
+	},
 	date: {
 		type: Date,
 		default: Date.now
@@ -13,7 +17,23 @@ const storySchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: "Creator",
 		required: true
-	}
+	},
+	upVotes: Number,
+	downVotes: Number,
+	comments: [
+		{
+			customerId: {
+				type: Schema.Types.ObjectId,
+				ref: "Customer",
+				required: true
+			},
+			body: String,
+			date: {
+				type: Date,
+				default: Date.now
+			}
+		}
+	]
 });
 
 module.exports = mongoose.model("Story", storySchema);
