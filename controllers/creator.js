@@ -19,7 +19,7 @@ exports.getDashboard = (req, res, next) => {
 	});
 };
 
-exports.getUploadStory = (req, res, next) => {
+exports.getUploadStory = (req, res, next) => { 
 	res.render("creator/upload-story", {
 		pageTitle: "Upload Story",
 		creatorLoggedIn: req.session.creatorLoggedIn
@@ -28,9 +28,10 @@ exports.getUploadStory = (req, res, next) => {
 
 exports.postUploadStory = (req, res, next) => {
 	const title = req.body.title;
+	const creatorId = req.session.userId;
 	const story = new Story({
 		title: title,
-		creatorLoggedIn: req.session.creatorLoggedIn
+		creatorId: creatorId
 	});
 	story
 		.save()

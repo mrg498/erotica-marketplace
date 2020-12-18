@@ -9,6 +9,9 @@ const storySchema = new Schema({
 	body: {
 		type: String
 	},
+	audioFile: {
+		type: String
+	},
 	date: {
 		type: Date,
 		default: Date.now
