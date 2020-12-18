@@ -1,5 +1,5 @@
 # erotica-marketplace
-Website for creators to list and sell erotica stories.
+Website for creators to list and sell erotica stories and erotic audio.
 
 ## Users
 
@@ -8,6 +8,8 @@ Website for creators to list and sell erotica stories.
 **Creators** - A creator uses the site to upload Erotica fiction and audio readings/performances and get paid for their content. 
 
 ## Models
+
+**Customer** - id, display name, password, email
 
 **Creator** - id, display name, email, password, bio, image
 
