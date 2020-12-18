@@ -83,6 +83,9 @@
 }
 
 .nav-links {
+	font-family: var(--font-header);
+	font-size: 1.5rem;
+	text-align: right;
 	position: fixed;
 	display: flex;
 	flex-direction: column;
@@ -91,26 +94,28 @@
 	height: 100vh;
 	width: 100vw;
 	background-color: var(--primary-color);
-	color: var(--accent-color-light);
 	border: 5px solid var(--accent-color-light);
 	border-top: none;
 	border-bottom: none;
 	margin-left: -100%;
-	padding-top: 1rem;
+	padding-top: 2rem;
 }
 
-hr{
+hr {
 	border: 3px solid var(--accent-color-light);
 	width: 100%;
 }
 
 .nav-links .creators {
-	font-size: 2rem;
+	font-size: inherit;
 	margin-top: 1rem;
-	margin-bottom: 0.5rem;
+	margin-bottom: 1rem;
 	margin-right: 1rem;
-	color: white;
-	text-decoration: underline;
+	color: var(--secondary-color);
+}
+
+.creator-links {
+	font-size: 1.3rem;
 }
 
 @keyframes slideMenuIn {
@@ -155,19 +160,49 @@ hr{
 	margin-right: 1rem;
 }
 
-.nav-links li:first-of-type{
+.nav-links li:first-of-type {
 	margin-top: 0;
 }
-.nav-links li:last-of-type{
-	margin-bottom: 1rem;
+.nav-links li:last-of-type {
+	margin-bottom: 2rem;
 }
 
 .nav-links a {
-	font-size: 2rem;
 	color: var(--accent-color-light);
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
 	color: var(--accent-color);
+}
+
+.nav-links__btn {
+	background: none;
+	font-family: var(--font-header);
+	border: none;
+	font-size: inherit;
+	color: var(--accent-color-light);
+	cursor: pointer;
+}
+
+.nav-links button:focus,
+.nav-links button:hover {
+	outline: none;
+	color: var(--accent-color);
+}
+
+.v {
+	animation-name: colorChange;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate-reverse;
+}
+
+@keyframes colorChange {
+	0% {
+		color: var(--secondary-color);
+	}
+	100% {
+		color: var(--accent-color-light);
+	}
 }

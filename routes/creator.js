@@ -1,11 +1,13 @@
 const express = require("express");
-
+const isAuth = require("../middleware/is-auth").creatorIsAuth;
 const creatorController = require("../controllers/creator");
 
 const router = express.Router();
 
-router.get('/upload-story', creatorController.getUploadStory);
+router.get('/dashboard', isAuth, creatorController.getDashboard);
 
-router.post('/upload-story', creatorController.postUploadStory);
+router.get('/upload-story', isAuth, creatorController.getUploadStory);
+
+router.post('/upload-story', isAuth, creatorController.postUploadStory);
 
 module.exports = router;

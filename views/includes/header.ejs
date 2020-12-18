@@ -12,30 +12,36 @@
                 <a class="nav-links__link" href="/audio-only">Audio Only</a>
             </li>
             <li class="nav-links__item">
-                <a class="nav-links__link" href="/about">About</a>
+                <a class="nav-links__link" href="/about">Contact Us</a>
             </li>
             
         </ul>
         <hr>
         <h3 class="creators">Creators</h3>
-        <ul>
+        <ul class="creator-links">
+            <% if (!creatorLoggedIn) { %>
             <li class="nav-links__item">
                 <a class="nav-links__link" href="/auth/creator-login">Login</a>
             </li>
-            <li class="nav-links__item">
-                <form action="/auth/creator-logout" method="POST">
-                    <button class="nav-links__link" type="submit">Logout</button>
-                </form>
-            </li>
+            <% } %>
+            <% if (!creatorLoggedIn) { %>
             <li class="nav-links__item">
                 <a class="nav-links__link" href="/auth/creator-signup">Signup</a>
             </li>
+            <% } %>
+            <% if (creatorLoggedIn) { %>
+            <li class="nav-links__item">
+                <form action="/auth/creator-logout" method="POST">
+                    <button class="nav-links__btn" type="submit">Logout</button>
+                </form>
+            </li>
+            <% } %>
         </ul>
     </div>
     <!--responsive navbar -->
     <nav class="navbar">
         <div class="logo">
-            <h1><a href="/">Haven</a></h1>
+            <h1><a href="/">Ha<span class="v">v</span>en</a></h1>
         </div>
         <div class="hamburger">
             <div class="hamburger__line"></div>

@@ -17,6 +17,7 @@
 body {
 	background-color: rgb(18, 39, 56);
 	font-family: var(--font-text);
+	color: var(--accent-color-light);
 	display: flex;
 	flex-direction: column;
 }

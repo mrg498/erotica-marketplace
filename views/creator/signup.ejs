@@ -9,16 +9,16 @@
         <div class="card">
             <form action="/auth/creator-signup" method="POST">
                 <div class="form__input-group">
-                    <label class="form__label" for="username">Display Name</label>
-                    <input class="form__input" type="text" id="username" name="username" required>
+                    <label class="form__label" for="displayName">Display Name</label>
+                    <input class="form__input" type="text" id="displayName" name="displayName" autocomplete="off" required>
                 </div>
                 <div class="form__input-group">
                     <label class="form__label" for="email">Email</label>
-                    <input  class="form__input" type="email" id="email" name="email" required>
+                    <input  class="form__input" type="email" id="email" name="email" autocomplete="email" required>
                 </div>
                 <div class="form__input-group">
                     <label class="form__label" for="password">Password</label>
-                    <input class="form__input" type="password" id="password" name="password" required>
+                    <input class="form__input" type="password" id="password" name="password" autocomplete="new-displayName" required>
                 </div>
                 <div class="form__input-group">
                     <button class="btn" type="submit">Submit</button>
