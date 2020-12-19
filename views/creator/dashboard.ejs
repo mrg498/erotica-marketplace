@@ -5,8 +5,12 @@
 <body>
     <%- include('../includes/header.ejs') %>
     <main>
-        <h1>Dashboard.ejs</h1>
         <h1>Hi <%=creator.displayName %></h1>
-        <a href="/creator/upload-story">Upload New Story</a> 
+        <a href="/creator/upload-story">Upload New Story</a>
+        <a href="/creator/manage-payment">Manage Payments</a>
+        <h3>Your Stories</h3>
+        <% for (const story of stories) { %> 
+            <h3><%=story.title %></h3>
+        <% } %>
     </main>
     <%- include('../includes/foot.ejs') %>

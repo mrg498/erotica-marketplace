@@ -16,6 +16,9 @@ const creatorSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    imageURL: {
+        type: String
     }
 });
 

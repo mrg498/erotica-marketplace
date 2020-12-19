@@ -5,18 +5,31 @@ const Story = require("../models/story");
 
 exports.getDashboard = (req, res, next) => {
 	// console.log(req.session);
-	const creatorId = req.session.userId;
+	let creatorId = req.session.userId;
+	let creator;
 	Creator.findById(creatorId)
-	.then((creator) => {
+	.then((c) => {
+		if(c){
+			creator = c;
+			creatorId = c.id;
+		}
+		console.log(creatorId);
+		return Story.find({creatorId: creatorId})
+	})
+	.then((stories) => {
+		console.log(creator);
+		// console.log(stories);
 		res.render("creator/dashboard", {
 			pageTitle: "Creator Dashboard",
 			creator: creator,
+			stories: stories,
 			creatorLoggedIn: req.session.creatorLoggedIn
 		});
 	})
 	.catch(err => {
 		console.log(err);
 	});
+
 };
 
 exports.getUploadStory = (req, res, next) => { 
@@ -36,9 +49,17 @@ exports.postUploadStory = (req, res, next) => {
 	story
 		.save()
 		.then((result) => {
-			res.redirect("/creator/upload-story");
+			res.redirect("/creator/dashboard");
 		})
 		.catch((err) => {
 			console.log(err);
+			res.redirect("/creator/dashboard");
 		});
+};
+
+exports.getManagePayment = (req,res,next) => {
+	res.render('creator/manage-payment', {
+		pageTitle: "Upload Story",
+		creatorLoggedIn: req.session.creatorLoggedIn
+	});
 };

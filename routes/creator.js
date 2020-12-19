@@ -10,4 +10,6 @@ router.get('/upload-story', isAuth, creatorController.getUploadStory);
 
 router.post('/upload-story', isAuth, creatorController.postUploadStory);
 
+router.get('/manage-payment', isAuth, creatorController.getManagePayment);
+
 module.exports = router;
