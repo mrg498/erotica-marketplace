@@ -23,10 +23,10 @@ exports.postCreatorLogin = (req, res, next) => {
 					if (!doesMatch) {
 						return res.redirect("/auth/creator-login");
 					}
-                    req.session.creatorLoggedIn = true;
-                    req.session.userId = creator._id;
+					req.session.creatorLoggedIn = true;
+					req.session.userId = creator._id;
 					req.session.save((err) => {
-						res.redirect('/creator/dashboard');
+						res.redirect("/creator/dashboard");
 					});
 				})
 				.catch((err) => {

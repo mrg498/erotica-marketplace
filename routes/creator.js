@@ -4,12 +4,14 @@ const creatorController = require("../controllers/creator");
 
 const router = express.Router();
 
-router.get('/dashboard', isAuth, creatorController.getDashboard);
+router.get("/dashboard", isAuth, creatorController.getDashboard);
 
-router.get('/upload-story', isAuth, creatorController.getUploadStory);
+router.get("/upload-story", isAuth, creatorController.getUploadStory);
 
-router.post('/upload-story', isAuth, creatorController.postUploadStory);
+router.post("/upload-story", isAuth, creatorController.postUploadStory);
 
-router.get('/manage-payment', isAuth, creatorController.getManagePayment);
+router.get("/manage-payment", isAuth, creatorController.getManagePayment);
+
+router.get("/edit-profile", isAuth, creatorController.getEditProfile);
 
 module.exports = router;

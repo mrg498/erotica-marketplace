@@ -1,4 +1,4 @@
-const ObjectID = require('mongodb').ObjectID;
+const ObjectID = require("mongodb").ObjectID;
 
 const Creator = require("../models/creator");
 const Story = require("../models/story");
@@ -8,31 +8,29 @@ exports.getDashboard = (req, res, next) => {
 	let creatorId = req.session.userId;
 	let creator;
 	Creator.findById(creatorId)
-	.then((c) => {
-		if(c){
-			creator = c;
-			creatorId = c.id;
-		}
-		console.log(creatorId);
-		return Story.find({creatorId: creatorId})
-	})
-	.then((stories) => {
-		console.log(creator);
-		// console.log(stories);
-		res.render("creator/dashboard", {
-			pageTitle: "Creator Dashboard",
-			creator: creator,
-			stories: stories,
-			creatorLoggedIn: req.session.creatorLoggedIn
+		.then((c) => {
+			if (c) {
+				creator = c;
+				creatorId = c.id;
+			}
+			return Story.find({ creatorId: creatorId });
+		})
+		.then((stories) => {
+			// console.log(creator);
+			// console.log(stories);
+			res.render("creator/dashboard", {
+				pageTitle: "Creator Dashboard",
+				creator: creator,
+				stories: stories,
+				creatorLoggedIn: req.session.creatorLoggedIn
+			});
+		})
+		.catch((err) => {
+			console.log(err);
 		});
-	})
-	.catch(err => {
-		console.log(err);
-	});
-
 };
 
-exports.getUploadStory = (req, res, next) => { 
+exports.getUploadStory = (req, res, next) => {
 	res.render("creator/upload-story", {
 		pageTitle: "Upload Story",
 		creatorLoggedIn: req.session.creatorLoggedIn
@@ -57,9 +55,16 @@ exports.postUploadStory = (req, res, next) => {
 		});
 };
 
-exports.getManagePayment = (req,res,next) => {
-	res.render('creator/manage-payment', {
-		pageTitle: "Upload Story",
+exports.getManagePayment = (req, res, next) => {
+	res.render("creator/manage-payment", {
+		pageTitle: "Manage Payment",
+		creatorLoggedIn: req.session.creatorLoggedIn
+	});
+};
+
+exports.getEditProfile = (req, res, next) => {
+	res.render("creator/edit-profile", {
+		pageTitle: "Edit Profile",
 		creatorLoggedIn: req.session.creatorLoggedIn
 	});
 };

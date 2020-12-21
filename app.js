@@ -16,7 +16,7 @@ const errorController = require("./controllers/error");
 
 //constants
 DATABASE_URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env
-			.DB_PASSWORD}@cluster0.jckc1.mongodb.net/erotica-marketplace?retryWrites=true&w=majority`;
+	.DB_PASSWORD}@cluster0.jckc1.mongodb.net/erotica-marketplace?retryWrites=true&w=majority`;
 
 //create express app
 const app = express();
@@ -52,15 +52,12 @@ app.use("/admin", adminRoutes);
 app.use(errorController.get404);
 
 //connect to database and start server
-mongoose.set('useCreateIndex', true);
+mongoose.set("useCreateIndex", true);
 mongoose
-	.connect(
-		DATABASE_URI,
-		{
-			useNewUrlParser: true,
-			useUnifiedTopology: true
-		}
-	)
+	.connect(DATABASE_URI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
 	.then((result) => {
 		console.log("database connected");
 	})
