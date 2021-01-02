@@ -10,6 +10,10 @@
             <form action="/creator/upload-story" method="POST">
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" required>
+                <label for="body">Story</label>
+                <textarea id="body" name="body" rows="10" placeholder="Copy and paste your story or description here" required></textarea>
+                <label for="audioFile">Audio File</label>
+                <input type="file" id="audioFile" name="audioFile">
                 <button type="submit">Submit</button>
             </form>
         </div>

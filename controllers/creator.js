@@ -40,9 +40,13 @@ exports.getUploadStory = (req, res, next) => {
 exports.postUploadStory = (req, res, next) => {
 	const title = req.body.title;
 	const creatorId = req.session.userId;
+	const body = req.body.body;
+	const audioFile = req.body.audioFile;
 	const story = new Story({
 		title: title,
-		creatorId: creatorId
+		creatorId: creatorId,
+		body: body,
+		audioFile: audioFile
 	});
 	story
 		.save()

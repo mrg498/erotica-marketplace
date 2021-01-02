@@ -21,8 +21,14 @@ const storySchema = new Schema({
 		ref: "Creator",
 		required: true
 	},
-	upVotes: Number,
-	downVotes: Number,
+	upVotes: {
+		type: Number,
+		default: 0
+	},
+	downVotes: {
+		type: Number,
+		default: 0
+	},
 	comments: [
 		{
 			customerId: {
