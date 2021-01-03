@@ -59,6 +59,23 @@ exports.postUploadStory = (req, res, next) => {
 		});
 };
 
+exports.getEditStory = (req, res, next) => {
+	const storyId = req.params.storyId;
+	// console.log(storyId);
+	Story.findById(storyId)
+		.then((story) => {
+			res.render("creator/edit-story", {
+				pageTitle: "Upload Story",
+				creatorLoggedIn: req.session.creatorLoggedIn,
+				story: story
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			res.redirect("/creator/dashboard");
+		});
+};
+
 exports.getManagePayment = (req, res, next) => {
 	res.render("creator/manage-payment", {
 		pageTitle: "Manage Payment",

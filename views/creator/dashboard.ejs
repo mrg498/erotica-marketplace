@@ -11,13 +11,15 @@
             <a class="dashboard-links__link" href="/creator/edit-profile">Edit Profile</a>
             <a class="dashboard-links__link" href="/creator/manage-payment">Manage Payments</a>
         </div>
-        
+
         <section class="stories">
-            <h2>Your Stories</h2>
+            <h2>Your Creations</h2>
             <% for (const story of stories) { %>
-            <div class="stories__story">
-                <h3><%=story.title %></h3>
-            </div>
+            <a href="/creator/edit-story/<%=story.id%>" class="stories__story">
+                <div>
+                    <h3><%=story.title %></h3>
+                </div>
+            </a>
             <% } %>
         </section>
 

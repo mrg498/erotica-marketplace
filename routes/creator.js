@@ -10,6 +10,8 @@ router.get("/upload-story", isAuth, creatorController.getUploadStory);
 
 router.post("/upload-story", isAuth, creatorController.postUploadStory);
 
+router.get("/edit-story/:storyId", isAuth, creatorController.getEditStory)
+
 router.get("/manage-payment", isAuth, creatorController.getManagePayment);
 
 router.get("/edit-profile", isAuth, creatorController.getEditProfile);
