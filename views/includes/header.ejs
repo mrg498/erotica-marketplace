@@ -37,6 +37,7 @@
             <% if (creatorLoggedIn) { %>
             <li class="nav-links__item">
                 <form action="/auth/creator-logout" method="POST">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                     <button class="nav-links__btn" type="submit">Logout</button>
                 </form>
             </li>

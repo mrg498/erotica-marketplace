@@ -8,6 +8,7 @@
         <h1 class="main__header">Welcome!</h1>
         <div class="card">
             <form action="/auth/creator-signup" method="POST">
+                <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                 <div class="form__input-group">
                     <label class="form__label" for="displayName">Display Name</label>
                     <input class="form__input" type="text" id="displayName" name="displayName" autocomplete="off" required>

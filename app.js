@@ -4,6 +4,7 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const csrf = require("csurf");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const mongoose = require("mongoose");
 require("dotenv").config();
@@ -27,6 +28,10 @@ const store = new MongoDBStore({
 	collection: "sessions"
 });
 
+//initialize csrf protection
+const csrfProtection = csrf();
+
+
 //third party middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -39,8 +44,17 @@ app.use(
 	})
 );
 
+//register csrf middleware
+app.use(csrfProtection);
+
 //templates setup
 app.set("view engine", "ejs");
+
+//set locals for views
+app.use((req,res,next) => {
+	res.locals.csrfToken = req.csrfToken();
+	next();
+});
 
 //Router objects
 app.use(shopRoutes);
