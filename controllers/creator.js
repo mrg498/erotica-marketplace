@@ -59,6 +59,25 @@ exports.postUploadStory = (req, res, next) => {
 		});
 };
 
+exports.getStoryDetails = (req,res,next) => {
+	const storyId = req.params.storyId;
+	Story.findById(storyId)
+		.then((story) => {
+			const dateFormat = story.date.toLocaleDateString();
+			// const dateFormat = `${month} ${date} ${year}`;
+			res.render("creator/story-details", {
+				pageTitle: "Story Details",
+				creatorLoggedIn: req.session.creatorLoggedIn,
+				story: story,
+				dateFormat: dateFormat
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			res.redirect("/creator/dashboard");
+		});
+};
+
 exports.getEditStory = (req, res, next) => {
 	const storyId = req.params.storyId;
 	// console.log(storyId);
