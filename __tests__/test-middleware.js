@@ -2,7 +2,7 @@ const isAuth = require("../middleware/is-auth");
 
 describe("MIDDLEWARE", () => {
 	describe("is-auth", () => {
-		it("if creator is not authorized call res.redirect", function() {
+		test("if creator is not authorized, call res.redirect", function() {
 			const req = {
 				session: {
 					creatorLoggedIn: false
@@ -17,7 +17,7 @@ describe("MIDDLEWARE", () => {
 			expect(isAuth.creatorIsAuth(req, res, mockNext)).toBe("redirect");
 			expect(mockNext.mock.calls.length).toBe(0);
 		});
-		it("if creator is authorized call next", () => {
+		test("if creator is authorized, call next", () => {
 			const req = {
 				session: {
 					creatorLoggedIn: true
@@ -27,7 +27,7 @@ describe("MIDDLEWARE", () => {
 			isAuth.creatorIsAuth(req, {}, mockNext);
             expect(mockNext.mock.calls.length).toBe(1);
         });
-        it("if customer is not authorized call res.redirect", function() {
+        test("if customer is not authorized, call res.redirect", function() {
 			const req = {
 				session: {
 					customerLoggedIn: false
@@ -40,7 +40,7 @@ describe("MIDDLEWARE", () => {
 			expect(isAuth.customerIsAuth(req, res, mockNext)).toBe("redirect");
 			expect(mockNext.mock.calls.length).toBe(0);
 		});
-		it("if customer is authorized call next", () => {
+		test("if customer is authorized, call next", () => {
 			const req = {
 				session: {
 					customerLoggedIn: true
