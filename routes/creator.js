@@ -12,7 +12,9 @@ router.post("/upload-story", isAuth, creatorController.postUploadStory);
 
 router.get("/story-details/:storyId", isAuth, creatorController.getStoryDetails);
 
-router.get("/edit-story/:storyId", isAuth, creatorController.getEditStory)
+router.get("/edit-story/:storyId", isAuth, creatorController.getEditStory);
+
+router.post("/delete-story", isAuth, creatorController.postDeleteStory);
 
 router.get("/manage-payment", isAuth, creatorController.getManagePayment);
 

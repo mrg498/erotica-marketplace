@@ -6,7 +6,12 @@
     <%- include('../includes/header.ejs') %>
     <main>
         <h1 class="pageTitle">Story Details</h1>
-
+        <a href="/creator/edit-story/<%=story.id%>">Edit Story</a>
+        <form action="/creator/delete-story" method="POST">
+            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+            <input id="storyId" name="storyId" value="<%=story.id%>" hidden/>
+            <button type="submit">Delete Story</button>
+        </form>
         <h3><%=story.title%></h3>
         <h3><%=dateFormat%></h3>
         <h3>up-votes:<%=story.upVotes%></h3>

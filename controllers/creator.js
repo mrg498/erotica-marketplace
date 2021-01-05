@@ -59,7 +59,7 @@ exports.postUploadStory = (req, res, next) => {
 		});
 };
 
-exports.getStoryDetails = (req,res,next) => {
+exports.getStoryDetails = (req, res, next) => {
 	const storyId = req.params.storyId;
 	Story.findById(storyId)
 		.then((story) => {
@@ -92,6 +92,19 @@ exports.getEditStory = (req, res, next) => {
 		.catch((err) => {
 			console.log(err);
 			res.redirect("/creator/dashboard");
+		});
+};
+
+exports.postDeleteStory = (req, res, next) => {
+	const storyId = req.body.storyId;
+	console.log("Delete Story route");
+	Story.findByIdAndDelete(storyId)
+		.then((deletedStory) => {
+			console.log("deleted Story", deletedStory);
+			res.redirect("/creator/dashboard");
+		})
+		.catch((err) => {
+			console.log(err);
 		});
 };
 
