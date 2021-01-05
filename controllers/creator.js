@@ -95,6 +95,26 @@ exports.getEditStory = (req, res, next) => {
 		});
 };
 
+exports.postEditStory = (req,res,next) => {
+	const storyId = req.body.storyId;
+	const title = req.body.title;
+	const body = req.body.body;
+	const audioFile = req.body.audioFile;
+	const updatedStory = {
+		title: title,
+		body: body,
+		audioFile: audioFile
+	}
+	Story.findByIdAndUpdate(storyId, updatedStory, {new: true})
+	.then(updatedDoc => {
+		console.log("updated Story", updatedDoc);
+		res.redirect(`/creator/story-details/${storyId}`);
+	})
+	.catch(err=>{
+		console.log(err);
+	});
+}
+
 exports.postDeleteStory = (req, res, next) => {
 	const storyId = req.body.storyId;
 	console.log("Delete Story route");

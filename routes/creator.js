@@ -14,6 +14,8 @@ router.get("/story-details/:storyId", isAuth, creatorController.getStoryDetails)
 
 router.get("/edit-story/:storyId", isAuth, creatorController.getEditStory);
 
+router.post("/edit-story", isAuth, creatorController.postEditStory);
+
 router.post("/delete-story", isAuth, creatorController.postDeleteStory);
 
 router.get("/manage-payment", isAuth, creatorController.getManagePayment);
