@@ -1,5 +1,5 @@
 # Haven
-Website for creators to list and sell erotic stories/audio.
+Website for creators to list and sell erotic stories/audio
 
 ## Users
 
