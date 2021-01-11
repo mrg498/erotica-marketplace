@@ -1,5 +1,5 @@
-# erotica-marketplace
-Website for creators to list and sell erotica stories and erotic audio.
+# Haven
+Website for creators to list and sell erotic stories/audio.
 
 ## Users
 
