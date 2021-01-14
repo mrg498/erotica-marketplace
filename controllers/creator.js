@@ -21,8 +21,7 @@ exports.getDashboard = (req, res, next) => {
 			res.render("creator/dashboard", {
 				pageTitle: "Creator Dashboard",
 				creator: creator,
-				stories: stories,
-				
+				stories: stories
 			});
 		})
 		.catch((err) => {
@@ -32,8 +31,7 @@ exports.getDashboard = (req, res, next) => {
 
 exports.getUploadStory = (req, res, next) => {
 	res.render("creator/upload-story", {
-		pageTitle: "Upload Story",
-		
+		pageTitle: "Upload Story"
 	});
 };
 
@@ -67,7 +65,7 @@ exports.getStoryDetails = (req, res, next) => {
 			// const dateFormat = `${month} ${date} ${year}`;
 			res.render("creator/story-details", {
 				pageTitle: "Story Details",
-				
+
 				story: story,
 				dateFormat: dateFormat
 			});
@@ -85,7 +83,7 @@ exports.getEditStory = (req, res, next) => {
 		.then((story) => {
 			res.render("creator/edit-story", {
 				pageTitle: "Upload Story",
-				
+
 				story: story
 			});
 		})
@@ -95,7 +93,7 @@ exports.getEditStory = (req, res, next) => {
 		});
 };
 
-exports.postEditStory = (req,res,next) => {
+exports.postEditStory = (req, res, next) => {
 	const storyId = req.body.storyId;
 	const title = req.body.title;
 	const body = req.body.body;
@@ -104,16 +102,16 @@ exports.postEditStory = (req,res,next) => {
 		title: title,
 		body: body,
 		audioFile: audioFile
-	}
-	Story.findByIdAndUpdate(storyId, updatedStory, {new: true})
-	.then(updatedDoc => {
-		console.log("updated Story", updatedDoc);
-		res.redirect(`/creator/story-details/${storyId}`);
-	})
-	.catch(err=>{
-		console.log(err);
-	});
-}
+	};
+	Story.findByIdAndUpdate(storyId, updatedStory, { new: true })
+		.then((updatedDoc) => {
+			console.log("updated Story", updatedDoc);
+			res.redirect(`/creator/story-details/${storyId}`);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
 
 exports.postDeleteStory = (req, res, next) => {
 	const storyId = req.body.storyId;
@@ -130,14 +128,12 @@ exports.postDeleteStory = (req, res, next) => {
 
 exports.getManagePayment = (req, res, next) => {
 	res.render("creator/manage-payment", {
-		pageTitle: "Manage Payment",
-		
+		pageTitle: "Manage Payment"
 	});
 };
 
 exports.getEditProfile = (req, res, next) => {
 	res.render("creator/edit-profile", {
-		pageTitle: "Edit Profile",
-		
+		pageTitle: "Edit Profile"
 	});
 };
