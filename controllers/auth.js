@@ -4,7 +4,7 @@ const Creator = require("../models/creator");
 
 exports.getCreatorLogin = (req, res, next) => {
 	res.render("creator/login", {
-		pageTitle: "Creator Login"
+		pageTitle: "Creator Login",
 	});
 };
 
@@ -14,12 +14,14 @@ exports.postCreatorLogin = (req, res, next) => {
 	return Creator.findOne({ email: email })
 		.then((creator) => {
 			if (!creator) {
+				req.flash('error', 'Invalid email or password. Try again!');
 				return res.redirect("/auth/creator-login");
 			}
 			bcrypt
 				.compare(password, creator.password)
 				.then((doesMatch) => {
 					if (!doesMatch) {
+						req.flash('error', 'Invalid email or password. Try again!');
 						return res.redirect("/auth/creator-login");
 					}
 					req.session.creatorLoggedIn = true;

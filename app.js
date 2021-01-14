@@ -7,6 +7,7 @@ const session = require("express-session");
 const csrf = require("csurf");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const mongoose = require("mongoose");
+const flash = require('connect-flash');
 require("dotenv").config();
 //my modules
 const shopRoutes = require("./routes/shop");
@@ -43,6 +44,7 @@ app.use(
 		store: store
 	})
 );
+app.use(flash());
 
 //register csrf middleware
 app.use(csrfProtection);
@@ -54,6 +56,7 @@ app.set("view engine", "ejs");
 app.use((req,res,next) => {
 	res.locals.csrfToken = req.csrfToken();
 	res.locals.creatorLoggedIn = req.session.creatorLoggedIn;
+	res.locals.flashError = req.flash('error');
 	next();
 });
 
