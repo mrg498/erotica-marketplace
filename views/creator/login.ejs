@@ -6,6 +6,7 @@
     <%- include('../includes/header.ejs') %>
     <main>
         <h1 class="main__header">Welcome Back!</h1>
+        <div class="flash"></div>
         <div class="card">
             <form action="/auth/creator-login" method="POST">
                 <input type="hidden" name="_csrf" value="<%=csrfToken%>">

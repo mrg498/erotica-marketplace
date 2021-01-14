@@ -22,7 +22,7 @@ exports.getDashboard = (req, res, next) => {
 				pageTitle: "Creator Dashboard",
 				creator: creator,
 				stories: stories,
-				creatorLoggedIn: req.session.creatorLoggedIn
+				
 			});
 		})
 		.catch((err) => {
@@ -33,7 +33,7 @@ exports.getDashboard = (req, res, next) => {
 exports.getUploadStory = (req, res, next) => {
 	res.render("creator/upload-story", {
 		pageTitle: "Upload Story",
-		creatorLoggedIn: req.session.creatorLoggedIn
+		
 	});
 };
 
@@ -67,7 +67,7 @@ exports.getStoryDetails = (req, res, next) => {
 			// const dateFormat = `${month} ${date} ${year}`;
 			res.render("creator/story-details", {
 				pageTitle: "Story Details",
-				creatorLoggedIn: req.session.creatorLoggedIn,
+				
 				story: story,
 				dateFormat: dateFormat
 			});
@@ -85,7 +85,7 @@ exports.getEditStory = (req, res, next) => {
 		.then((story) => {
 			res.render("creator/edit-story", {
 				pageTitle: "Upload Story",
-				creatorLoggedIn: req.session.creatorLoggedIn,
+				
 				story: story
 			});
 		})
@@ -131,13 +131,13 @@ exports.postDeleteStory = (req, res, next) => {
 exports.getManagePayment = (req, res, next) => {
 	res.render("creator/manage-payment", {
 		pageTitle: "Manage Payment",
-		creatorLoggedIn: req.session.creatorLoggedIn
+		
 	});
 };
 
 exports.getEditProfile = (req, res, next) => {
 	res.render("creator/edit-profile", {
 		pageTitle: "Edit Profile",
-		creatorLoggedIn: req.session.creatorLoggedIn
+		
 	});
 };

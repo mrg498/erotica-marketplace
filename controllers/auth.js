@@ -5,7 +5,6 @@ const Creator = require("../models/creator");
 exports.getCreatorLogin = (req, res, next) => {
 	res.render("creator/login", {
 		pageTitle: "Creator Login",
-		creatorLoggedIn: req.session.creatorLoggedIn
 	});
 };
 
@@ -48,7 +47,6 @@ exports.postCreatorLogout = (req, res, next) => {
 exports.getCreatorSignup = (req, res, next) => {
 	res.render("creator/signup", {
 		pageTitle: "Creator Signup",
-		creatorLoggedIn: req.session.creatorLoggedIn
 	});
 };
 

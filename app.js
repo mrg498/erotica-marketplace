@@ -53,6 +53,7 @@ app.set("view engine", "ejs");
 //set locals for views
 app.use((req,res,next) => {
 	res.locals.csrfToken = req.csrfToken();
+	res.locals.creatorLoggedIn = req.session.creatorLoggedIn;
 	next();
 });
 
