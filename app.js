@@ -57,7 +57,7 @@ app.use((req,res,next) => {
 	res.locals.csrfToken = req.csrfToken();
 	res.locals.creatorLoggedIn = req.session.creatorLoggedIn;
 	res.locals.flashError = req.flash('error');
-	console.log(res.locals.flashError);
+	// console.log(res.locals.flashError);
 	next();
 });
 

@@ -15,6 +15,17 @@ const customerSchema = new Schema({
 		type: String,
 		required: true,
 		unique: true
+	},
+	cart: {
+		items: [
+			{
+				storyId: {
+					type: Schema.Types.ObjectId,
+					ref: "Story",
+					required: true
+				}
+			}
+		]
 	}
 });
 

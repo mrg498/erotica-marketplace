@@ -83,7 +83,6 @@ exports.getEditStory = (req, res, next) => {
 		.then((story) => {
 			res.render("creator/edit-story", {
 				pageTitle: "Upload Story",
-
 				story: story
 			});
 		})
@@ -115,7 +114,6 @@ exports.postEditStory = (req, res, next) => {
 
 exports.postDeleteStory = (req, res, next) => {
 	const storyId = req.body.storyId;
-	console.log("Delete Story route");
 	Story.findByIdAndDelete(storyId)
 		.then((deletedStory) => {
 			console.log("deleted Story", deletedStory);
