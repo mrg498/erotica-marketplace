@@ -4,7 +4,7 @@ const Creator = require("../models/creator");
 
 exports.getCreatorLogin = (req, res, next) => {
 	res.render("creator/login", {
-		pageTitle: "Creator Login",
+		pageTitle: "Creator Login"
 	});
 };
 
@@ -14,15 +14,19 @@ exports.postCreatorLogin = (req, res, next) => {
 	return Creator.findOne({ email: email })
 		.then((creator) => {
 			if (!creator) {
-				req.flash('error', 'Invalid email or password. Try again!');
-				return res.redirect("/auth/creator-login");
+				req.flash("error", "Invalid email or password. Try again!");
+				return req.session.save((err) => {
+					res.redirect("/auth/creator-login");
+				});
 			}
 			bcrypt
 				.compare(password, creator.password)
 				.then((doesMatch) => {
 					if (!doesMatch) {
-						req.flash('error', 'Invalid email or password. Try again!');
-						return res.redirect("/auth/creator-login");
+						req.flash("error", "Invalid email or password. Try again!");
+						return req.session.save((err) => {
+							res.redirect("/auth/creator-login");
+						});
 					}
 					req.session.creatorLoggedIn = true;
 					req.session.userId = creator._id;
@@ -61,14 +65,18 @@ exports.postCreatorSignup = (req, res, next) => {
 	Creator.findOne({ email: email })
 		.then((doc) => {
 			if (doc) {
-				return (userExists = true);
+				userExists = true;
+				req.flash("error", "Sorry! A creator is already using this email.");
+				return;
 			}
 			return Creator.findOne({ displayName: displayName });
 		})
 		// does user with display name already exist?
 		.then((doc) => {
 			if (doc) {
-				return (userExists = true);
+				userExists = true;
+				req.flash("error", "Sorry! A creator is already using this display name.");
+				return;
 			}
 			// hash the password before saving to database
 			return bcrypt.hash(password, 12);
@@ -89,7 +97,9 @@ exports.postCreatorSignup = (req, res, next) => {
 		.then((result) => {
 			if (userExists) {
 				console.log("User already exists");
-				return res.redirect("/auth/creator-signup");
+				return req.session.save((err) => {
+					res.redirect("/auth/creator-signup");
+				});
 			}
 			console.log("created new user");
 			res.redirect("/auth/creator-login");
