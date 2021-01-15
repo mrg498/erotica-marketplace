@@ -19,7 +19,18 @@ const creatorSchema = new Schema({
 	},
 	imageURL: {
 		type: String
+	},
+	confirmed: {
+		type: Boolean,
+		default: false,
+		required: true
+	},
+	premium: {
+		type: Boolean,
+		default: false,
+		required: true
 	}
+
 });
 
 module.exports = mongoose.model("Creator", creatorSchema);
