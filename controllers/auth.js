@@ -1,4 +1,9 @@
+//used for hashing passwords
 const bcrypt = require("bcryptjs");
+
+//auto send email from app
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const Creator = require("../models/creator");
 
@@ -102,6 +107,22 @@ exports.postCreatorSignup = (req, res, next) => {
 				});
 			}
 			console.log("created new user");
+			const emailMsg = {
+				to: email, // Change to your recipient
+				from: "miles.grossenbacher@gmail.com", // Change to your verified sender
+				subject: "Welcome to Haven!",
+				text: "Your haven account was created successfully!",
+				html: "<strong>Your haven account was created successfully!</strong>"
+			};
+			sgMail
+				.send(emailMsg)
+				.then(() => {
+					console.log("Email sent");
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+
 			res.redirect("/auth/creator-login");
 		})
 		.catch((err) => {
