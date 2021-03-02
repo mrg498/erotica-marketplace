@@ -1,11 +1,11 @@
 # Haven
-Website for creators to list and sell erotic stories/audio
+Website for creators to list and sell short stories and/or audio 
 
 ## Users
 
-**Customers** - A customer uses the site to find Erotica fiction to read and listen to. They can purchase paid content or get free content from creators.
+**Customers** - A customer uses the site to find stories to read and listen to. They can purchase paid content or get free content from creators.
 
-**Creators** - A creator uses the site to upload Erotica fiction and audio readings/performances and get paid for their content. 
+**Creators** - A creator uses the site to upload stories and audio readings/performances and get paid for their content. 
 
 ## Models
 
